@@ -17,7 +17,6 @@ export default defineConfig({
   },
   async onSuccess() {
     // Bundle CSS modules into a single CSS file
-    const { globby } = await import('globby');
     const glob = (await import('glob')).glob;
 
     const cssFiles = await glob('src/**/*.module.css');
