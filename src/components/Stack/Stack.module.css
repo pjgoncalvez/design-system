@@ -1,0 +1,84 @@
+/**
+ * Stack Component Styles
+ * One-directional flex container with consistent spacing
+ */
+
+.stack {
+  display: flex;
+  gap: var(--stack-spacing, 16px);
+}
+
+/* Direction */
+.stack--vertical {
+  flex-direction: column;
+}
+
+.stack--horizontal {
+  flex-direction: row;
+}
+
+/* Wrap */
+.stack--wrap {
+  flex-wrap: wrap;
+}
+
+/* Alignment */
+.stack--align-start {
+  align-items: start;
+}
+
+.stack--align-center {
+  align-items: center;
+}
+
+.stack--align-end {
+  align-items: end;
+}
+
+.stack--align-stretch {
+  align-items: stretch;
+}
+
+.stack--align-baseline {
+  align-items: baseline;
+}
+
+/* Justify */
+.stack--justify-start {
+  justify-content: start;
+}
+
+.stack--justify-center {
+  justify-content: center;
+}
+
+.stack--justify-end {
+  justify-content: end;
+}
+
+.stack--justify-space-between {
+  justify-content: space-between;
+}
+
+.stack--justify-space-around {
+  justify-content: space-around;
+}
+
+.stack--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+/* Divider */
+.stackDivider {
+  flex-shrink: 0;
+}
+
+.stack--vertical .stackDivider {
+  width: 100%;
+  height: 1px;
+}
+
+.stack--horizontal .stackDivider {
+  width: 1px;
+  height: 100%;
+}

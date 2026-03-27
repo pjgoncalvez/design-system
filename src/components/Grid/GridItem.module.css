@@ -1,0 +1,12 @@
+/**
+ * GridItem Component Styles
+ */
+
+.gridItem {
+  /* Prevent grid blowout */
+  min-width: 0;
+}
+
+.gridItem--flex {
+  display: flex;
+}
