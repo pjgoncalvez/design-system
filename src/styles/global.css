@@ -1,0 +1,30 @@
+/**
+ * Design System Global Styles
+ *
+ * This file includes essential global styles for the design system,
+ * including font imports and base font configuration.
+ *
+ * Import this file in your application to ensure proper font rendering:
+ * import 'design-system-poc/styles/global.css'
+ */
+
+/* Import Nunito Sans font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/* Base font configuration */
+body {
+  font-family:
+    'Nunito Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

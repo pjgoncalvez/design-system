@@ -1,0 +1,56 @@
+/**
+ * Grid Component Styles
+ * 24-column responsive grid system based on CSS Grid
+ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: var(--grid-gutter-row, 0) var(--grid-gutter-col, 0);
+}
+
+/* Alignment */
+.grid--align-start {
+  align-items: start;
+}
+
+.grid--align-center {
+  align-items: center;
+}
+
+.grid--align-end {
+  align-items: end;
+}
+
+.grid--align-stretch {
+  align-items: stretch;
+}
+
+.grid--align-baseline {
+  align-items: baseline;
+}
+
+/* Justify */
+.grid--justify-start {
+  justify-content: start;
+}
+
+.grid--justify-center {
+  justify-content: center;
+}
+
+.grid--justify-end {
+  justify-content: end;
+}
+
+.grid--justify-space-between {
+  justify-content: space-between;
+}
+
+.grid--justify-space-around {
+  justify-content: space-around;
+}
+
+.grid--justify-space-evenly {
+  justify-content: space-evenly;
+}

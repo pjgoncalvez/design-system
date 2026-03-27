@@ -1,0 +1,59 @@
+/**
+ * Container Component Styles
+ * Responsive container with max-widths at each breakpoint
+ */
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--container-max-width, 100%);
+}
+
+/* Padded variant */
+.container--padded {
+  padding-left: var(--container-padding, 16px);
+  padding-right: var(--container-padding, 16px);
+}
+
+/* Fluid variant - no max-width */
+.container--fluid {
+  max-width: none;
+}
+
+/* Responsive max-widths (when not fluid) */
+@media (min-width: 576px) {
+  .container:not(.container--fluid) {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container:not(.container--fluid) {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container:not(.container--fluid) {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container:not(.container--fluid) {
+    max-width: 1152px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container:not(.container--fluid) {
+    max-width: 1536px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .container:not(.container--fluid) {
+    max-width: 1920px;
+  }
+}

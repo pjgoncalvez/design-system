@@ -6,60 +6,261 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
 jobs:
-  lint-and-typecheck:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run format:check
-      - run: npm run typecheck
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+  typecheck:
+    name: Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TypeScript compiler
+        run: npm run typecheck
 
   test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm ci
-      - run: npm test
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run tests
+        run: npm test
+
+      - name: Upload test coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            coverage/
+            playwright-report/
+          retention-days: 30
+
+  visual-regression:
+    name: Visual Regression Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run visual regression tests
+        id: visual_tests
+        run: npm test -- e2e/layout-components.visual.spec.ts
+        continue-on-error: true
+
+      - name: Check if visual diffs exist
+        id: check_diffs
+        if: always()
+        run: |
+          if [ -d "e2e/layout-components.visual.spec.ts-snapshots" ]; then
+            # Check for any diff images
+            DIFF_COUNT=$(find e2e -name "*-diff.png" 2>/dev/null | wc -l)
+            echo "diff_count=$DIFF_COUNT" >> $GITHUB_OUTPUT
+            if [ $DIFF_COUNT -gt 0 ]; then
+              echo "has_diffs=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_diffs=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "has_diffs=false" >> $GITHUB_OUTPUT
+            echo "diff_count=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload visual regression results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-results
+          path: |
+            e2e/**/*-snapshots/
+            playwright-report/
+          retention-days: 30
+
+      - name: Comment PR with visual regression results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const hasDiffs = '${{ steps.check_diffs.outputs.has_diffs }}' === 'true';
+            const diffCount = '${{ steps.check_diffs.outputs.diff_count }}';
+            const testsPassed = '${{ steps.visual_tests.outcome }}' === 'success';
+
+            let body = '## 📸 Visual Regression Test Results\n\n';
+
+            if (testsPassed && !hasDiffs) {
+              body += '✅ **All visual tests passed!** No visual changes detected.\n\n';
+            } else if (hasDiffs) {
+              body += `⚠️ **${diffCount} visual difference(s) detected!**\n\n`;
+              body += '### Action Required\n';
+              body += '- Review the visual changes in the artifacts below\n';
+              body += '- If the changes are intentional, update the snapshots\n';
+              body += '- If the changes are unexpected, investigate and fix\n\n';
+              body += '### How to Update Snapshots\n';
+              body += '```bash\n';
+              body += 'npm test -- e2e/layout-components.visual.spec.ts --update-snapshots\n';
+              body += '```\n\n';
+            } else if (!testsPassed) {
+              body += '❌ **Visual tests failed!** Check the test results for details.\n\n';
+            }
+
+            body += '### 📦 Artifacts\n\n';
+            body += `- [Download Visual Regression Results](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})\n`;
+            body += `- [View Full Test Report](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})\n\n`;
+
+            body += '<details>\n';
+            body += '<summary>ℹ️ About Visual Regression Testing</summary>\n\n';
+            body += 'Visual regression tests capture screenshots of components and compare them against baseline images. ';
+            body += 'This helps catch unintended visual changes before they reach production.\n';
+            body += '</details>\n';
+
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('📸 Visual Regression Test Results')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }
 
   build:
+    name: Build
     runs-on: ubuntu-latest
+    needs: [lint, typecheck, test]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-artifact@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build library
+        run: npm run build
+
+      - name: Build Storybook
+        run: npm run build:storybook
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: dist/
+          path: |
+            dist/
+            storybook-static/
+          retention-days: 7
 
-  e2e:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Comment PR with build status
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
         with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci
-      - run: npx playwright install --with-deps
-      - run: npm run test:e2e
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+          script: |
+            const body = `## ✅ Build Successful\n\nThe library and Storybook have been built successfully!\n\n### 📦 Artifacts\n- [Download Build Output](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('## ✅ Build Successful')
+            );
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }

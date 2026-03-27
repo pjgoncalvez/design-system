@@ -1,0 +1,90 @@
+/**
+ * Flex Component Styles
+ * Generic flex container with full control
+ */
+
+.flex {
+  display: flex;
+  gap: var(--flex-gap, 0);
+}
+
+/* Inline variant */
+.flex--inline {
+  display: inline-flex;
+}
+
+/* Direction */
+.flex--row {
+  flex-direction: row;
+}
+
+.flex--row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.flex--column-reverse {
+  flex-direction: column-reverse;
+}
+
+/* Wrap */
+.flex--nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+.flex--wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+/* Alignment */
+.flex--align-start {
+  align-items: start;
+}
+
+.flex--align-center {
+  align-items: center;
+}
+
+.flex--align-end {
+  align-items: end;
+}
+
+.flex--align-stretch {
+  align-items: stretch;
+}
+
+.flex--align-baseline {
+  align-items: baseline;
+}
+
+/* Justify */
+.flex--justify-start {
+  justify-content: start;
+}
+
+.flex--justify-center {
+  justify-content: center;
+}
+
+.flex--justify-end {
+  justify-content: end;
+}
+
+.flex--justify-space-between {
+  justify-content: space-between;
+}
+
+.flex--justify-space-around {
+  justify-content: space-around;
+}
+
+.flex--justify-space-evenly {
+  justify-content: space-evenly;
+}

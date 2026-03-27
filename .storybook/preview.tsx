@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Preview } from '@storybook/react-vite'
 
 const preview: Preview = {
@@ -14,8 +15,17 @@ const preview: Preview = {
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
       test: 'todo'
-    }
+    },
+
+    layout: 'centered',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ fontFamily: 'Nunito Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default preview;

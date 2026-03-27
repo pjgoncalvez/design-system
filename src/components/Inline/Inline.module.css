@@ -1,0 +1,56 @@
+/**
+ * Inline Component Styles
+ * Wrapping flex container for inline content
+ */
+
+.inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--inline-spacing, 8px);
+}
+
+/* Alignment */
+.inline--align-start {
+  align-items: start;
+}
+
+.inline--align-center {
+  align-items: center;
+}
+
+.inline--align-end {
+  align-items: end;
+}
+
+.inline--align-stretch {
+  align-items: stretch;
+}
+
+.inline--align-baseline {
+  align-items: baseline;
+}
+
+/* Justify */
+.inline--justify-start {
+  justify-content: start;
+}
+
+.inline--justify-center {
+  justify-content: center;
+}
+
+.inline--justify-end {
+  justify-content: end;
+}
+
+.inline--justify-space-between {
+  justify-content: space-between;
+}
+
+.inline--justify-space-around {
+  justify-content: space-around;
+}
+
+.inline--justify-space-evenly {
+  justify-content: space-evenly;
+}
