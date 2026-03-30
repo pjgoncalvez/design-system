@@ -46,12 +46,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/design-system-poc.git"
+    "url": "git+https://github.com/pjgoncalvez/design-system.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/design-system-poc/issues"
+    "url": "https://github.com/pjgoncalvez/design-system/issues"
   },
-  "homepage": "https://github.com/yourusername/design-system-poc#readme",
+  "homepage": "https://github.com/pjgoncalvez/design-system#readme",
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
