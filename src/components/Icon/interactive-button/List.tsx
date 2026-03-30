@@ -1,0 +1,25 @@
+import React from 'react';
+import { IconProps } from '../types';
+
+const SvgList: React.FC<IconProps> = ({ size = 24, color = '#4E5969', className, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 48 48"
+    fill="none"
+    className={className}
+    {...props}
+  >
+    <path
+      fill={color}
+      fillRule="evenodd"
+      d="M9 14H5v-4h4zm34 0H13v-4h30zM9 26H5v-4h4zm34 0H13v-4h30zM9 38H5v-4h4zm34 0H13v-4h30z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+
+SvgList.displayName = 'SvgList';
+
+export default SvgList;
