@@ -5,7 +5,7 @@ Thank you for your interest in contributing to this project!
 ## Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/yourusername/design-system-poc.git`
+2. Clone your fork: `git clone https://github.com/pjgoncalvez/design-systemc.git`
 3. Install dependencies: `npm install`
 4. Create a new branch: `git checkout -b feature/your-feature-name`
 
@@ -57,6 +57,7 @@ We use Conventional Commits for clear and structured commit messages:
 ```
 
 **Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -66,6 +67,7 @@ We use Conventional Commits for clear and structured commit messages:
 - `chore`: Maintenance tasks
 
 **Examples:**
+
 ```
 feat(button): add loading state
 fix(input): correct focus styles
