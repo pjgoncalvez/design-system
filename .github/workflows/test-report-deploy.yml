@@ -24,6 +24,7 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           name: test-results
           path: ./test-artifacts
+          workflow_conclusion: ""  # Accept any conclusion (success, failure, etc.)
 
       - name: Get PR number
         id: pr
