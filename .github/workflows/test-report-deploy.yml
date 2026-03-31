@@ -15,12 +15,12 @@ jobs:
     if: github.event.workflow_run.event == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - name: Download visual regression artifacts
+      - name: Download test artifacts
         uses: dawidd6/action-download-artifact@v6
         with:
           workflow: ci.yml
           run_id: ${{ github.event.workflow_run.id }}
-          name: visual-regression-results
+          name: test-results
           path: ./test-artifacts
 
       - name: Get PR number
