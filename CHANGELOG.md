@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/pjgoncalvez/design-system/compare/v1.1.0...v1.2.0) (2026-03-31)
+
+
+### Features
+
+* **collapse:** add collapse component ([a17b43c](https://github.com/pjgoncalvez/design-system/commit/a17b43c64a068adf7263f4e177eec2b2ddf0d21f))
+
 # [1.1.0](https://github.com/pjgoncalvez/design-system/compare/v1.0.1...v1.1.0) (2026-03-31)
 
 
