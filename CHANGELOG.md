@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/pjgoncalvez/design-system/compare/v1.2.0...v1.3.0) (2026-03-31)
+
+
+### Features
+
+* **tabs:** add tabs component and tests ([95437f7](https://github.com/pjgoncalvez/design-system/commit/95437f7b8ce16645e900d4b3c6905a9a1bd1b46d))
+
 # [1.2.0](https://github.com/pjgoncalvez/design-system/compare/v1.1.0...v1.2.0) (2026-03-31)
 
 
