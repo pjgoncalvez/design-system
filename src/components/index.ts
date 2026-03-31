@@ -31,3 +31,6 @@ export type { ButtonProps, ButtonVariant, ButtonSize } from './Button';
 
 export { Collapse } from './Collapse';
 export type { CollapseProps, CollapseSize } from './Collapse';
+
+export { Tabs } from './Tabs';
+export type { TabsProps, TabsSize, TabsVariant, TabItem } from './Tabs';
