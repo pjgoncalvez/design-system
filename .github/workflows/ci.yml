@@ -76,10 +76,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: |
-            coverage/
-            playwright-report/
+          path: coverage/
           retention-days: 30
+          if-no-files-found: warn
 
       - name: Comment PR with test results
         if: github.event_name == 'pull_request' && always()
