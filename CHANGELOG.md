@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/pjgoncalvez/design-system/compare/v1.0.1...v1.1.0) (2026-03-31)
+
+
+### Features
+
+* add Badge and Button components and tests ([665aa69](https://github.com/pjgoncalvez/design-system/commit/665aa69e5b55903fab283904e8705b7b2d0125ee))
+
 ## [1.0.1](https://github.com/pjgoncalvez/design-system/compare/v1.0.0...v1.0.1) (2026-03-31)
 
 
