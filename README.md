@@ -5,7 +5,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-A React component library and design system built with TypeScript and CSS Modules. Test reports are automatically generated and deployed for every pull request.
+# ⚠️ This is just a proof of concept, its purpose is to showcase my design-system implementation/tooling skills, not really intended to be used in production. 
+
+A React component library and design system built with TypeScript and CSS Modules (using figma tokens, based on [Arco Design system](https://www.figma.com/community/file/1053233047330321743/arco-design-system) )
+Test reports are automatically generated and deployed for every pull request.
 
 ## Features
 
