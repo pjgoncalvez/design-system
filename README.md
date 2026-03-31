@@ -3,7 +3,6 @@
 [![CI](https://github.com/pjgoncalvez/design-system/actions/workflows/ci.yml/badge.svg)](https://github.com/pjgoncalvez/design-system/actions/workflows/ci.yml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 # ⚠️ This is just a proof of concept, its purpose is to showcase my design-system implementation/tooling skills, not really intended to be used in production. 
 
@@ -20,8 +19,10 @@ Test reports are automatically generated and deployed for every pull request.
 - Semantic versioning with automated releases
 - GitHub Actions CI/CD pipeline
 
-## Installation
+## ~~Installation~~
 
+
+🚨 to be configured later.
 ```bash
 npm install design-system-poc
 ```
