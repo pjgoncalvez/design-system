@@ -1,5 +1,4 @@
 /**
- * Components
  * Exports all design system components
  */
 
@@ -22,3 +21,10 @@ export type { FlexProps } from './Flex';
 // Icon components
 export { Icon } from './Icon';
 export type { IconName, IconProps, IconSize, GenericIconProps } from './Icon';
+
+// UI components
+export { Badge } from './Badge';
+export type { BadgeProps, BadgeVariant, BadgeSize } from './Badge';
+
+export { Button } from './Button';
+export type { ButtonProps, ButtonVariant, ButtonSize } from './Button';
