@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-A React component library and design system built with TypeScript and CSS Modules.
+A React component library and design system built with TypeScript and CSS Modules. Test reports are automatically generated and deployed for every pull request.
 
 ## Features
 
