@@ -1,0 +1,187 @@
+/**
+ * Button Component Styles
+ *
+ * Styling for Button component with variants and sizes.
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family:
+    'Nunito Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid #165dff;
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.small {
+  height: 28px;
+  padding: 0 12px;
+  font-size: 12px;
+  line-height: 26px;
+}
+
+.medium {
+  height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 34px;
+}
+
+.large {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 42px;
+}
+
+/* Full width */
+.fullWidth {
+  width: 100%;
+}
+
+/* Disabled state */
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Loading state */
+.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Variants - Primary */
+.primary {
+  background-color: #165dff;
+  color: #ffffff;
+  border-color: #165dff;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: #4080ff;
+  border-color: #4080ff;
+}
+
+.primary:active:not(:disabled) {
+  background-color: #0e42d2;
+  border-color: #0e42d2;
+}
+
+/* Variants - Secondary */
+.secondary {
+  background-color: #ffffff;
+  color: #1d2129;
+  border-color: #c9cdd4;
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: #f7f8fa;
+  border-color: #a9aeb8;
+}
+
+.secondary:active:not(:disabled) {
+  background-color: #f2f3f5;
+  border-color: #86909c;
+}
+
+/* Variants - Success */
+.success {
+  background-color: #00b42a;
+  color: #ffffff;
+  border-color: #00b42a;
+}
+
+.success:hover:not(:disabled) {
+  background-color: #23c343;
+  border-color: #23c343;
+}
+
+.success:active:not(:disabled) {
+  background-color: #009a29;
+  border-color: #009a29;
+}
+
+/* Variants - Warning */
+.warning {
+  background-color: #ff7d00;
+  color: #ffffff;
+  border-color: #ff7d00;
+}
+
+.warning:hover:not(:disabled) {
+  background-color: #ff9a2e;
+  border-color: #ff9a2e;
+}
+
+.warning:active:not(:disabled) {
+  background-color: #d25f00;
+  border-color: #d25f00;
+}
+
+/* Variants - Danger */
+.danger {
+  background-color: #f53f3f;
+  color: #ffffff;
+  border-color: #f53f3f;
+}
+
+.danger:hover:not(:disabled) {
+  background-color: #f76560;
+  border-color: #f76560;
+}
+
+.danger:active:not(:disabled) {
+  background-color: #cb272d;
+  border-color: #cb272d;
+}
+
+/* Variants - Ghost */
+.ghost {
+  background-color: transparent;
+  color: #4e5969;
+  border-color: transparent;
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: #f2f3f5;
+}
+
+.ghost:active:not(:disabled) {
+  background-color: #e5e6eb;
+}
+
+/* Loading spinner */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
