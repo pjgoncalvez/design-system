@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/pjgoncalvez/design-system/compare/v1.0.0...v1.0.1) (2026-03-31)
+
+
+### Bug Fixes
+
+* download correct artifact (test-results) for test report deployment ([f07a6f9](https://github.com/pjgoncalvez/design-system/commit/f07a6f98c9474a1dae0397dc47c0f496db84f207))
+
 # 1.0.0 (2026-03-31)
 
 
