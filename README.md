@@ -11,8 +11,9 @@ A React component library and design system built with TypeScript and CSS Module
 
 - React components built with TypeScript
 - CSS Modules for styling
-- Storybook for component documentation
+- Storybook for component documentation (deployed on Vercel)
 - Comprehensive testing with Vitest and Playwright
+- Automated test reports on GitHub Pages for every PR
 - Semantic versioning with automated releases
 - GitHub Actions CI/CD pipeline
 
