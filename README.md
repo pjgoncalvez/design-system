@@ -1,6 +1,7 @@
 # Design System POC
 
 [![CI](https://github.com/pjgoncalvez/design-system/actions/workflows/ci.yml/badge.svg)](https://github.com/pjgoncalvez/design-system/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/github/v/release/pjgoncalvez/design-system)](https://github.com/pjgoncalvez/design-system/releases)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
