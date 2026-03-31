@@ -9,10 +9,12 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy-report:
-    if: github.event.workflow_run.event == 'pull_request'
+    if: github.event.workflow_run.conclusion != 'cancelled'
     runs-on: ubuntu-latest
     steps:
       - name: Download test artifacts
@@ -28,6 +30,16 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            // First try to get PR from workflow_run pull_requests
+            if (context.payload.workflow_run.pull_requests &&
+                context.payload.workflow_run.pull_requests.length > 0) {
+              const prNumber = context.payload.workflow_run.pull_requests[0].number;
+              core.setOutput('number', prNumber);
+              console.log(`Found PR #${prNumber} from workflow_run.pull_requests`);
+              return prNumber;
+            }
+
+            // Fallback: search for PR by head branch
             const { data: pullRequests } = await github.rest.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -36,13 +48,21 @@ jobs:
             });
 
             if (pullRequests.length > 0) {
-              core.setOutput('number', pullRequests[0].number);
-              return pullRequests[0].number;
+              const prNumber = pullRequests[0].number;
+              core.setOutput('number', prNumber);
+              console.log(`Found PR #${prNumber} from branch search`);
+              return prNumber;
             }
 
-            core.setFailed('No PR found for this workflow run');
+            // If no PR found, this might be a push to main - skip deployment
+            console.log('No PR found - this may be a push to main branch');
+            console.log(`Event: ${context.payload.workflow_run.event}`);
+            console.log(`Branch: ${context.payload.workflow_run.head_branch}`);
+            core.setOutput('number', '');
+            return null;
 
       - name: Prepare deployment directory
+        if: steps.pr.outputs.number != ''
         run: |
           # Copy Playwright report if it exists
           if [ -d "./test-artifacts/playwright-report" ]; then
@@ -85,6 +105,7 @@ jobs:
           EOF
 
       - name: Deploy to GitHub Pages
+        if: steps.pr.outputs.number != ''
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -28,3 +28,6 @@ export type { BadgeProps, BadgeVariant, BadgeSize } from './Badge';
 
 export { Button } from './Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './Button';
+
+export { Collapse } from './Collapse';
+export type { CollapseProps, CollapseSize } from './Collapse';
