@@ -1,4 +1,4 @@
-# Design System POC
+# Design System PoC
 
 [![CI](https://github.com/pjgoncalvez/design-system/actions/workflows/ci.yml/badge.svg)](https://github.com/pjgoncalvez/design-system/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/github/v/release/pjgoncalvez/design-system)](https://github.com/pjgoncalvez/design-system/releases)
