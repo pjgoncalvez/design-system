@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/pjgoncalvez/design-system/compare/v1.3.0...v1.4.0) (2026-04-03)
+
+
+### Features
+
+* **carousel/useSwipe:** add carousel component, add useSwipe hook ([7759423](https://github.com/pjgoncalvez/design-system/commit/7759423847c3fc8b1231de101b56fd11145cd0e4))
+
 # [1.3.0](https://github.com/pjgoncalvez/design-system/compare/v1.2.0...v1.3.0) (2026-03-31)
 
 
