@@ -34,3 +34,6 @@ export type { CollapseProps, CollapseSize } from './Collapse';
 
 export { Tabs } from './Tabs';
 export type { TabsProps, TabsSize, TabsVariant, TabItem } from './Tabs';
+
+export { Carousel } from './Carousel';
+export type { CarouselProps, CarouselSize, CarouselItem } from './Carousel';
