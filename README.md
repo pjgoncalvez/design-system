@@ -5,7 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# ⚠️ This is just a proof of concept, its purpose is to showcase my design-system implementation/tooling skills, not really intended to be used in production. 
+## ⚠️ This is just a proof of concept, not really intended to be used in production.
 
 A React component library and design system built with TypeScript and CSS Modules (using figma tokens, based on [Arco Design system](https://www.figma.com/community/file/1053233047330321743/arco-design-system) )
 Test reports are automatically generated and deployed for every pull request.
@@ -24,8 +24,8 @@ Test reports are automatically generated and deployed for every pull request.
 
 ## ~~Installation~~
 
-
 🚨 to be configured later.
+
 ```bash
 npm install design-system-poc
 ```
@@ -61,16 +61,27 @@ This will automatically load the Nunito Sans font from Google Fonts and apply th
 If you prefer to manage fonts yourself, add this to your HTML `<head>`:
 
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 Then set the font family in your CSS:
 
 ```css
 body {
-  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    'Nunito Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
 }
 ```
 
@@ -196,13 +207,13 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/):
 
 Every pull request and push to `main` triggers automated checks:
 
-| Job | Description | Artifacts |
-|-----|-------------|-----------|
-| **Lint** | ESLint checks for code quality | - |
-| **Type Check** | TypeScript compilation and type safety | - |
-| **Test** | Unit tests with Vitest + Storybook tests | Test results, coverage |
-| **Visual Regression** | Playwright screenshot comparison | Visual diffs, HTML report |
-| **Build** | Library and Storybook build verification | Build output |
+| Job                   | Description                              | Artifacts                 |
+| --------------------- | ---------------------------------------- | ------------------------- |
+| **Lint**              | ESLint checks for code quality           | -                         |
+| **Type Check**        | TypeScript compilation and type safety   | -                         |
+| **Test**              | Unit tests with Vitest + Storybook tests | Test results, coverage    |
+| **Visual Regression** | Playwright screenshot comparison         | Visual diffs, HTML report |
+| **Build**             | Library and Storybook build verification | Build output              |
 
 ### Pull Request Workflow
 
@@ -215,15 +226,18 @@ Every pull request and push to `main` triggers automated checks:
 ### Viewing Test Results
 
 **Option 1: GitHub Actions UI**
+
 1. Go to the "Actions" tab in GitHub
 2. Click on the workflow run for your PR
 3. Download artifacts (visual-regression-results, test-results, build-output)
 
 **Option 2: PR Comments**
+
 - Visual regression results are automatically commented on PRs
 - Includes links to artifacts and instructions for updating snapshots
 
 **Option 3: Local Testing**
+
 ```bash
 # Run all checks locally before pushing
 npm run lint
