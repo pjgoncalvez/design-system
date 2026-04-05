@@ -22,12 +22,10 @@ Test reports are automatically generated and deployed for every pull request.
 - Semantic versioning with automated releases
 - GitHub Actions CI/CD pipeline
 
-## ~~Installation~~
-
-🚨 to be configured later.
+## Installation
 
 ```bash
-npm install design-system-poc
+npm install arco-clone-react
 ```
 
 ## Usage

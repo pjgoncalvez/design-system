@@ -37,3 +37,6 @@ export type { TabsProps, TabsSize, TabsVariant, TabItem } from './Tabs';
 
 export { Carousel } from './Carousel';
 export type { CarouselProps, CarouselSize, CarouselItem } from './Carousel';
+
+export { Drawer } from './Drawer';
+export type { DrawerProps, DrawerPlacement, DrawerSize } from './Drawer';
