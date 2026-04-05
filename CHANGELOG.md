@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/pjgoncalvez/design-system/compare/v1.4.0...v1.5.0) (2026-04-05)
+
+
+### Features
+
+* **drawer:** adds drawer component ([660434b](https://github.com/pjgoncalvez/design-system/commit/660434b961019d8946acbaa67166d79dc33fd4af))
+
 # [1.4.0](https://github.com/pjgoncalvez/design-system/compare/v1.3.0...v1.4.0) (2026-04-03)
 
 
