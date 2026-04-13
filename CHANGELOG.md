@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/pjgoncalvez/design-system/compare/v1.5.0...v1.6.0) (2026-04-13)
+
+
+### Features
+
+* **select-component:** add select component ([8efe7bc](https://github.com/pjgoncalvez/design-system/commit/8efe7bcea069a4ec8042e0c729af5d49b59ed56b))
+
 # [1.5.0](https://github.com/pjgoncalvez/design-system/compare/v1.4.0...v1.5.0) (2026-04-05)
 
 
