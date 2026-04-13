@@ -1,0 +1,220 @@
+/**
+ * Select Component Styles
+ *
+ * Styling for the Select component with sizes and states.
+ */
+
+/* Container */
+.selectWrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-family:
+    'Nunito Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+/* Trigger button */
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #c9cdd4;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  user-select: none;
+  outline: none;
+  color: #1d2129;
+}
+
+.trigger:hover:not(.disabled) {
+  border-color: #a9aeb8;
+}
+
+.trigger:focus-visible:not(.disabled) {
+  border-color: #165dff;
+  box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.2);
+}
+
+/* Sizes */
+.small {
+  height: 28px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+.medium {
+  height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.large {
+  height: 44px;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+/* States */
+.open {
+  border-color: #165dff;
+  box-shadow: 0 0 0 2px rgba(22, 93, 255, 0.2);
+}
+
+.error {
+  border-color: #f53f3f;
+}
+
+.error:hover:not(.disabled) {
+  border-color: #f76560;
+}
+
+.error.open,
+.error:focus-visible:not(.disabled) {
+  border-color: #f53f3f;
+  box-shadow: 0 0 0 2px rgba(245, 63, 63, 0.2);
+}
+
+.disabled {
+  background-color: #f7f8fa;
+  border-color: #e5e6eb;
+  cursor: not-allowed;
+  color: #c9cdd4;
+}
+
+/* Trigger content */
+.triggerText {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.placeholder {
+  color: #86909c;
+}
+
+/* Icons */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: #86909c;
+  transition: transform 0.2s ease;
+}
+
+.iconWrapper.rotated {
+  transform: rotate(180deg);
+}
+
+.clearIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: #86909c;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: color 0.2s ease;
+}
+
+.clearIcon:hover {
+  color: #4e5969;
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background-color: #ffffff;
+  border: 1px solid #e5e6eb;
+  border-radius: 4px;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    0 0 2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Option list */
+.optionList {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Option item */
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  height: 36px;
+  font-size: 14px;
+  color: #1d2129;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  user-select: none;
+}
+
+.option:hover:not(.optionDisabled) {
+  background-color: #f2f3f5;
+}
+
+.optionSelected {
+  color: #165dff;
+  background-color: #e8f3ff;
+  font-weight: 600;
+}
+
+.optionSelected:hover:not(.optionDisabled) {
+  background-color: #bedaff;
+}
+
+.optionDisabled {
+  color: #c9cdd4;
+  cursor: not-allowed;
+}
+
+/* Checkmark for selected option */
+.checkmark {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 8px;
+  color: #165dff;
+}
+
+/* Empty state */
+.emptyText {
+  padding: 12px;
+  text-align: center;
+  color: #86909c;
+  font-size: 14px;
+}

@@ -40,3 +40,6 @@ export type { CarouselProps, CarouselSize, CarouselItem } from './Carousel';
 
 export { Drawer } from './Drawer';
 export type { DrawerProps, DrawerPlacement, DrawerSize } from './Drawer';
+
+export { Select } from './Select';
+export type { SelectProps, SelectOption, SelectSize } from './Select';
